@@ -36,7 +36,7 @@ func main() {
 	fmt.Println("6 - Espresso")
 	fmt.Println("Q - Quit the program")
 
-	for {
+	/*for {
 		char, _, err := keyboard.GetKey()
 		if err != nil {
 			log.Fatal(err)
@@ -47,8 +47,25 @@ func main() {
 
 		i, _ := strconv.Atoi(string(char))
 
-		_, ok := coffees[i]
+		/*_, ok := coffees[i]
 		if ok {
+			fmt.Println(fmt.Sprintf("You chose %s", coffees[i]))
+		} // наступне це теж саме, що і це
+
+		if _, ok := coffees[i]; ok {
+			fmt.Println(fmt.Sprintf("You chose %s", coffees[i]))
+		}
+
+	} */
+	char := ' '
+	for ok := true; ok; ok = char != 'q' && char != 'Q' {
+		char, _, err = keyboard.GetKey()
+		if err != nil {
+			log.Fatal(err)
+		}
+		i, _ := strconv.Atoi(string(char))
+
+		if _, ok := coffees[i]; ok {
 			fmt.Println(fmt.Sprintf("You chose %s", coffees[i]))
 		}
 
